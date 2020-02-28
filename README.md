@@ -1,3 +1,5 @@
+[TOC]
+
 # Matrix multiplication with Markov Chain Analysis
 
 __*The following is the instructions supplied for the project.*__
@@ -17,9 +19,11 @@ Each move is called a step. The probability ```Pij``` that the process moves fro
 
 The probabilities ```Pij``` are called transition probabilities.
 
+## Problem
+
 Suppose the entire cola industry produces only three colas ```[cola1, cola2, cola3]```. Given that a person last purchased ```cola1```, there is a 90% chance that his/her next purchase will be ```cola1```. Given that a person last purchased ```cola2```, there is a 90% chance that his/her next purchase will be ```cola2```. Also, given that a person last purchased ```cola3```, there is a 90% chance that his/her next purchase will be ```cola3```.
 
-Now we can define the initial probability distribution for this example. Werepresent this in a transition probability matrix Q:
+Now we can define the initial probability distribution for this example. We represent this in a transition probability matrix Q:
 
 Q | cola1 | cola2 | cola3
 --|--|--|--|
@@ -31,15 +35,12 @@ In this example, each entry in the matrix Q must be non-negative and the entries
 
 Let’s solve this problem for two purchases from now on, 
 
-__*I am unsure what this is even supposed to be...is it a matrix? If so where do you split the thing into rows? The text below is supplied as is...so, so major confusion here.*__
-
-```
-Q2
-0.9 0.05 0.05 * 0.9 0.05 0.05 = 0.815 0.092 0.092
-0.05 0.9 0.05 0.05 0.9 0.05 0.092 0.815 0.092
-0.05 0.05 0.9 0.05 0.05 0.9 0.092 0.092 0.815
-```
-
+| Q2 | | | | | |
+| -- | -- | -- | -- | -- | -- |
+| cola1 | 0.900, 0.050, 0.050 | x | 0.900, 0.050, 0.050 | = | 0.815, 0.092, 0.092 |
+| cola2 | 0.050, 0.900, 0.050 | x | 0.050, 0.900, 0.050 | = | 0.092, 0.815, 0.092 |
+| cola3 | 0.050, 0.050, 0.900 | x | 0.050, 0.050, 0.900 | = | 0.092, 0.092, 0.815 |
+ 
 So the probability of purchasing a ```cola1``` in two purchases from now on by the ```cola2``` consumer is ```.092``` or ```9.2%```.
 
 You are supposed to implement two algorithms to solve this problem, and compare the results for efficiency of the algorithms. We have already implemented matrixmultiplication in Lab 1, use the same matrix multiplication algorithm when implementing following two algorithms. Use the given initial Q matrix to test your programs
